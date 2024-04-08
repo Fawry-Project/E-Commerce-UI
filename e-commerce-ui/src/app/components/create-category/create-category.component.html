@@ -1,1 +1,23 @@
-<p>create-category works!</p>
+<div>
+  <h2>Create Category</h2>
+  <form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+    <div class="form-group">
+      <label for="categoryName">Category Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="categoryName"
+        name="categoryName"
+        [(ngModel)]="categoryName"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!categoryForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
