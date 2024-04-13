@@ -1,0 +1,21 @@
+.side-nav {
+    height: 100vh; /* or use height: 100% if its parent has a fixed height */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .side-nav-item {
+    cursor: pointer;
+  }
+  
+  .side-nav-item:hover {
+    background-color: rgb(49, 49, 240);
+    color: white; /* Optional: Change text color on hover */
+  }
+  
+  .side-nav-item.active {
+    background-color: rgb(49, 49, 240);
+    color: white;
+  }
+  

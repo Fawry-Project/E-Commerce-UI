@@ -1,0 +1,32 @@
+<div class="container mt-4"> 
+    <app-search-bar></app-search-bar>
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="row">
+              <div class="col"> StoreId </div>
+              <div class="col"> Name </div>
+              <div class="col"> Phone Number</div>
+              <div class="col"> City</div>
+              <div class="col"></div>
+            </div>
+      </li>
+        <li *ngFor="let store of stores" class="list-group-item" id="list-group-item">
+          <div class="row">
+            <div class="col"> {{ store.id }}</div>
+            <div class="col"> {{ store.name }}</div>
+            <div class="col"> {{ store.phoneNumber }}</div>
+            <div class="col"> {{ store.city }}</div>
+            <div class="col">
+              <button type="button" class="btn btn-link p-0">
+                <img src="../../../../assets/icons/edit.png" alt="edit icon" style="width: 25px; height: 25px;">
+              </button>
+              <span style="margin-right: 10px;"></span>
+              <button type="button" class="btn btn-link p-0">
+                <img src="../../../../assets/icons/delete.png" alt="delete icon" style="width: 25px; height: 25px;">
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+</div>
