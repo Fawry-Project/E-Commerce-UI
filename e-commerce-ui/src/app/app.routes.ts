@@ -7,6 +7,11 @@ import { UpdateProductComponent } from './components/update-product/update-produ
 import { DeleteProductComponent } from './components/delete-product/delete-product.component';
 import { ProductHistoryComponent } from './components/product-history/product-history.component';
 import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { CouponServiceComponent } from './components/coupon-service/coupon-service.component';
+import { ListCouponsComponent } from './components/list-coupons/list-coupons.component';
+import { CreateCouponComponent } from './components/create-coupon/create-coupon.component';
+import { UpdateCouponComponent } from './components/update-coupon/update-coupon.component';
+import { DeleteCouponComponent } from './components/delete-coupon/delete-coupon.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +26,17 @@ export const routes: Routes = [
       { path: 'list-product-history', component: ProductHistoryComponent },
       { path: 'create-category', component: CreateCategoryComponent },
       { path: '', redirectTo: 'list-products', pathMatch: 'full' }, // Default route
+    ],
+  },
+  {
+    path: 'coupon-service',
+    component: CouponServiceComponent,
+    children: [
+      { path: 'list-coupons', component: ListCouponsComponent },
+      { path: 'create-coupon', component: CreateCouponComponent },
+      { path: 'update-coupon', component: UpdateCouponComponent },
+      { path: 'delete-coupon', component: DeleteCouponComponent },
+      { path: '', redirectTo: 'list-coupons', pathMatch: 'full' }, // Default route
     ],
   },
 ];
