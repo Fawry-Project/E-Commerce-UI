@@ -12,6 +12,13 @@ import { ListCouponsComponent } from './components/list-coupons/list-coupons.com
 import { CreateCouponComponent } from './components/create-coupon/create-coupon.component';
 import { UpdateCouponComponent } from './components/update-coupon/update-coupon.component';
 import { DeleteCouponComponent } from './components/delete-coupon/delete-coupon.component';
+import { StoreServiceComponent } from './components/store/store-service/store-service.component';
+import { CreateStoreComponent } from './components/store/create-store/create-store.component';
+import { ListStoresComponent } from './components/store/list-stores/list-stores.component';
+import { UpdateStoreComponent } from './components/store/update-store/update-store.component';
+import { DeleteStoreComponent } from './components/store/delete-store/delete-store.component';
+import { CreateStockComponent } from './components/store/create-stock/create-stock.component';
+import { ListStocksComponent } from './components/store/list-stocks/list-stocks.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,4 +46,15 @@ export const routes: Routes = [
       { path: '', redirectTo: 'list-coupons', pathMatch: 'full' }, // Default route
     ],
   },
+  {
+    path: 'store-service',
+    component: StoreServiceComponent,
+    children: [
+      { path: 'create-store', component: CreateStoreComponent },
+      { path: 'create-stock', component: CreateStockComponent },
+      { path: 'list-stores', component: ListStoresComponent },
+      { path: 'list-stocks', component: ListStocksComponent },
+      { path: '', redirectTo: '', pathMatch: 'full' }
+    ]
+  }
 ];

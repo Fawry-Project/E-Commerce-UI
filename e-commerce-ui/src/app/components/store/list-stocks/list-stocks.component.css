@@ -1,0 +1,7 @@
+#list-group-item {
+    border-bottom: 1px solid #dee2e6;
+  }
+#list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
