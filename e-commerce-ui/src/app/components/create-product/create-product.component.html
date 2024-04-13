@@ -1,1 +1,69 @@
-<p>create-product works!</p>
+<h2>Create Product</h2>
+<form (ngSubmit)="submitForm()" #productForm="ngForm">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      [(ngModel)]="product.name"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea
+      class="form-control"
+      id="description"
+      name="description"
+      [(ngModel)]="product.description"
+      required
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      name="price"
+      [(ngModel)]="product.price"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="imgUrl">Image URL:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="imgUrl"
+      name="imgUrl"
+      [(ngModel)]="product.imgUrl"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="categoryName">Category Name:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="categoryName"
+      name="categoryName"
+      [(ngModel)]="product.categoryName"
+      required
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="productForm.invalid"
+  >
+    Submit
+  </button>
+</form>
