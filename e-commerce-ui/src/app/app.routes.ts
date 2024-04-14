@@ -15,10 +15,10 @@ import { DeleteCouponComponent } from './components/delete-coupon/delete-coupon.
 import { StoreServiceComponent } from './components/store/store-service/store-service.component';
 import { CreateStoreComponent } from './components/store/create-store/create-store.component';
 import { ListStoresComponent } from './components/store/list-stores/list-stores.component';
-import { UpdateStoreComponent } from './components/store/update-store/update-store.component';
-import { DeleteStoreComponent } from './components/store/delete-store/delete-store.component';
 import { CreateStockComponent } from './components/store/create-stock/create-stock.component';
 import { ListStocksComponent } from './components/store/list-stocks/list-stocks.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },

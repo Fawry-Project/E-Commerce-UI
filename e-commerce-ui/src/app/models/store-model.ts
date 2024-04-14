@@ -1,5 +1,5 @@
-export class StoreDTO{
-    name !: string;
-    phoneNumber !: string;
-    city !: string;
+export interface StoreDTORequest{
+    name : string;
+    phoneNumber : string;
+    city : string;
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { StoreDTO } from '../../../models/store-model';
 import { FormsModule } from '@angular/forms';
+import { Store } from '../../../models/storeResponse-model';
+import { StoreService } from '../../../service/store/store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-store',
@@ -9,10 +11,18 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './create-store.component.html',
   styleUrl: './create-store.component.css'
 })
-export class CreateStoreComponent {
-  store :StoreDTO = new StoreDTO;
+export class CreateStoreComponent{
+  store :Store = new Store();
 
-  addStore(){
-    
+  // constructor(private storeService: StoreService, private router: Router){}
+
+  onsubmit(){
+    console.log(this.store);
+    // this.storeService.createStore(this.store);
+    // this.goToStoreList();
   }
+
+  // goToStoreList(){
+  //   this.router.navigate(['/store-service/list-stores'])
+  // }
 }

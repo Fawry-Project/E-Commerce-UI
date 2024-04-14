@@ -1,1 +1,58 @@
-<p>update-store works!</p>
+<div class="container mt-4">
+    <h2>Update Store</h2>
+    <form (ngSubmit)="onsubmit()" #storeForm="ngForm">
+        <div class="mb-3">
+            <label for="storeId" class="form-label">Store Id: </label>
+            <input
+              type="number"
+              id="storeId"
+              name="storeId"
+              class="form-control"
+              [(ngModel)]="store.id"
+              readonly
+              required
+            />
+        </div>
+        <div class="mb-3">
+            <label for="storeName" class="form-label">Store Name: </label>
+            <input
+              type="text"
+              id="storeName"
+              name="storeName"
+              class="form-control"
+              [(ngModel)]="store.name"
+              required
+            />
+        </div>
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label">Phone Number: </label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              class="form-control"
+              [(ngModel)]="store.phoneNumber"
+              required
+            />
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City: </label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              class="form-control"
+              [(ngModel)]="store.city"
+              required
+            />
+        </div>
+        <button 
+            type="submit" 
+            class="btn btn-primary"
+            [disabled]="!storeForm.valid"
+        >
+            Create Store
+        </button>
+    </form>
+</div>
+  

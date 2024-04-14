@@ -1,5 +1,5 @@
 export class StockDTO{
     productCode !: string;
-    stockId !: number;
+    storeId !: number;
     quantity !:number;
 }
