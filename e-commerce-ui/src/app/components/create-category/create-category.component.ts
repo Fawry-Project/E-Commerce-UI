@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CategoryDTO } from '../../models/category-model';
+import { CategoryService } from '../../service/category/category.service';
 
 @Component({
   selector: 'app-create-category',
@@ -10,12 +11,18 @@ import { CategoryDTO } from '../../models/category-model';
   styleUrl: './create-category.component.css',
 })
 export class CreateCategoryComponent {
-  categoryName: string = '';
+  category: CategoryDTO = new CategoryDTO();
 
-  onSubmit(): void {
-    const categoryDTO: CategoryDTO = { categoryName: this.categoryName };
-    console.log(categoryDTO);
-    // Clear the input field after successful submission
-    this.categoryName = '';
+  constructor(private categoryService: CategoryService) {}
+
+  onSubmit() {
+    this.categoryService.createCategory(this.category).subscribe(
+      (response) => {
+        console.log('Category created successfully:', response);
+      },
+      (error) => {
+        console.error('Error creating category:', error);
+      }
+    );
   }
 }
