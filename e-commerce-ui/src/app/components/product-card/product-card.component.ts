@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../models/product-model';
+import { ProductService } from '../../service/product/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -10,4 +12,12 @@ import { Product } from '../../models/product-model';
 })
 export class ProductCardComponent {
   @Input() product!: Product;
+  @Output() deleteProduct: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(private productService: ProductService, private router: Router) {}
+
+  onDeleteClick(productCode: string) {
+    // Emit the delete event with the productcode
+    this.deleteProduct.emit(productCode);
+  }
 }

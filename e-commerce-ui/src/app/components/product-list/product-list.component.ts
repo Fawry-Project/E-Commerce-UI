@@ -25,4 +25,16 @@ export class ProductListComponent implements OnInit {
       this.products = products;
     });
   }
+
+  onDeleteProduct(productCode: string) {
+    // Call service to delete the product
+    this.productService.deleteProduct(productCode).subscribe(
+      (response) => {
+        this.listProducts();
+      },
+      (error) => {
+        console.error('Error deleting product:', error);
+      }
+    );
+  }
 }

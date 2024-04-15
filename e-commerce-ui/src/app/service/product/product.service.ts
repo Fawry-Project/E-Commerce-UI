@@ -26,6 +26,16 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
+  deleteProduct(productCode: string): Observable<void> {
+    const deleteUrl = `${this.apiUrl}/${productCode}`;
+    return this.http.delete<void>(deleteUrl).pipe(
+      catchError((error) => {
+        console.error('Error deleting product:', error);
+        return throwError(error);
+      })
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Client-side error
