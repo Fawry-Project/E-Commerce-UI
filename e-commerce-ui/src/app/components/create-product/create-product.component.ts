@@ -23,7 +23,6 @@ export class CreateProductComponent {
       },
       (error) => {
         console.error('Error creating product:', error);
-        // Handle error if necessary
       }
     );
   }

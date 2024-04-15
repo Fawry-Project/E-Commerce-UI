@@ -1,0 +1,32 @@
+<!-- coupon-card.component.html -->
+
+<div class="card my-3" style="width: 970px; height: 150px">
+  <div class="card-body">
+    <h5 class="card-title">{{ coupon.code }}</h5>
+    <div class="row">
+      <div class="col-3">
+        <p>
+          <strong>Expiry Date:</strong>
+          {{ coupon.expiryDate | date : "mediumDate" }}
+        </p>
+      </div>
+      <div class="col-3">
+        <p><strong>Value Type:</strong> {{ coupon.valueType }}</p>
+      </div>
+      <div class="col-2">
+        <p><strong>Value:</strong> {{ coupon.value }}</p>
+      </div>
+      <div class="col-2">
+        <p><strong>Max Usages:</strong> {{ coupon.maxNumberOfUsages }}</p>
+      </div>
+      <div class="col-2">
+        <p>
+          <strong>Current Usages:</strong>
+          {{ coupon.currentNumberOfUsages }}
+        </p>
+      </div>
+    </div>
+    <button class="btn btn-primary">Update</button>
+    <button class="btn btn-danger">Delete</button>
+  </div>
+</div>

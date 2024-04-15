@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { CouponDTO } from '../../models/coupon-model';
+import { CouponDTO } from '../../models/couponDTO-model';
 import { FormsModule } from '@angular/forms';
+import { CouponService } from '../../service/coupon/coupon.service';
 
 @Component({
   selector: 'app-create-coupon',
@@ -12,14 +13,24 @@ import { FormsModule } from '@angular/forms';
 export class CreateCouponComponent {
   coupon: CouponDTO = new CouponDTO();
 
+  constructor(private couponService: CouponService) {}
+
   onSubmit() {
     console.log('Submitted Coupon:', this.coupon);
-    this.clearForm();
+    this.couponService.createCoupon(this.coupon).subscribe(
+      (response) => {
+        console.log('Coupon created successfully:', response);
+        this.clearForm();
+      },
+      (error) => {
+        console.error('Error creating coupon:', error);
+      }
+    );
   }
 
   clearForm() {
     this.coupon.code = '';
-    this.coupon.maxUsage = 0;
+    this.coupon.maxNumberOfUsages = 0;
     this.coupon.valueType = '';
     this.coupon.value = 0;
     this.coupon.expiryDate;

@@ -1,1 +1,5 @@
-<p>list-coupons works!</p>
+<div class="d-flex flex-wrap">
+  <div *ngFor="let coupon of coupons" class="mr-2 mb-2">
+    <app-coupon-card [coupon]="coupon"></app-coupon-card>
+  </div>
+</div>

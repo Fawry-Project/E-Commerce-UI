@@ -1,7 +1,10 @@
-export class CouponDTO {
+export class Coupon {
+  id!: number;
   code!: string;
-  maxUsage!: number;
+  expiryDate!: Date;
   valueType!: string;
   value!: number;
-  expiryDate!: Date;
+  maxNumberOfUsages!: number;
+  currentNumberOfUsages!: number;
+  valid!: boolean;
 }
