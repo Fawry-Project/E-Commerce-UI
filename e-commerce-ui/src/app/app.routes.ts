@@ -19,6 +19,10 @@ import { CreateStockComponent } from './components/store/create-stock/create-sto
 import { ListStocksComponent } from './components/store/list-stocks/list-stocks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { UpdateStoreComponent } from './components/store/update-store/update-store.component';
+import { UpdateStockComponent } from './components/store/update-stock/update-stock.component';
+import { DeleteStoreComponent } from './components/store/delete-store/delete-store.component';
+import { DeleteStockComponent } from './components/store/delete-stock/delete-stock.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +58,10 @@ export const routes: Routes = [
       { path: 'create-stock', component: CreateStockComponent },
       { path: 'list-stores', component: ListStoresComponent },
       { path: 'list-stocks', component: ListStocksComponent },
+      { path: 'update-store', component: UpdateStoreComponent },
+      { path: 'update-stock', component: UpdateStockComponent },
+      { path: 'delete-store', component: DeleteStoreComponent },
+      { path: 'delete-stock', component: DeleteStockComponent },
       { path: '', redirectTo: '', pathMatch: 'full' }
     ]
   }

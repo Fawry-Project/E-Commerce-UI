@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Stock } from '../../../models/stockResponse-model';
 import { StockService } from '../../../service/store/stock.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-stock',
@@ -17,12 +18,17 @@ export class CreateStockComponent {
 
   constructor(public stockService: StockService, private router: Router, private datePipe: DatePipe){}
 
-  onSubmit(){
-    console.log(this.stock);
-    this.stock.consumedQuantity = 0;
-    this.stock.creationDate = this.datePipe.transform(new Date(), 'dd/MMM/yyyy')
-    this.stockService.createStock(this.stock);
-    this.goToStocksList()
+  onSubmit(stockForm: NgForm): void{
+    console.log(stockForm.value);
+    this.stockService.addStock(stockForm.value).subscribe(
+      (response: Stock) => {
+        console.log(response);
+        this.goToStocksList();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
   goToStocksList(){
     this.router.navigate(['/store-service/list-stocks'])

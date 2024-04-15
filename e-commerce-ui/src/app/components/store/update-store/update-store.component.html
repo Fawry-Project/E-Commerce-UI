@@ -1,6 +1,6 @@
 <div class="container mt-4">
     <h2>Update Store</h2>
-    <form (ngSubmit)="onsubmit()" #storeForm="ngForm">
+    <form #editForm="ngForm">
         <div class="mb-3">
             <label for="storeId" class="form-label">Store Id: </label>
             <input
@@ -8,7 +8,7 @@
               id="storeId"
               name="storeId"
               class="form-control"
-              [(ngModel)]="store.id"
+              [value]="editStore.id"
               readonly
               required
             />
@@ -20,7 +20,7 @@
               id="storeName"
               name="storeName"
               class="form-control"
-              [(ngModel)]="store.name"
+              [(ngModel)]="editStore.name"
               required
             />
         </div>
@@ -31,7 +31,7 @@
               id="phoneNumber"
               name="phoneNumber"
               class="form-control"
-              [(ngModel)]="store.phoneNumber"
+              [(ngModel)]="editStore.phoneNumber"
               required
             />
         </div>
@@ -42,17 +42,17 @@
               id="city"
               name="city"
               class="form-control"
-              [(ngModel)]="store.city"
+              [(ngModel)]="editStore.city"
               required
             />
         </div>
         <button 
             type="submit" 
             class="btn btn-primary"
-            [disabled]="!storeForm.valid"
+            [disabled]="!editForm.valid"
+            (click)="onUpdateStore()" 
         >
-            Create Store
+            Update Store
         </button>
     </form>
 </div>
-  

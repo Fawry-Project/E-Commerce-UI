@@ -1,5 +1,6 @@
 <div class="container mt-4"> 
-    <app-search-bar></app-search-bar>
+    <app-search-bar [placeHolderValue]="'search with Product Code'"
+    (code)="onFetchStocks($event)"></app-search-bar>
 
     <ul class="list-group">
         <li class="list-group-item">
@@ -22,11 +23,11 @@
             <div class="col"> {{ stock.consumedQuantity }}</div>
             <div class="col"> {{ stock.creationDate }}</div>
             <div class="col">
-              <button type="button" class="btn btn-link p-0">
+              <button type="button" class="btn btn-link p-0" (click)="onClickEdit(stock)">
                 <img src="../../../../assets/icons/edit.png" alt="edit icon" style="width: 25px; height: 25px;">
               </button>
               <span style="margin-right: 10px;"></span>
-              <button type="button" class="btn btn-link p-0">
+              <button type="button" class="btn btn-link p-0" (click)="onClickDelete(stock)">
                 <img src="../../../../assets/icons/delete.png" alt="delete icon" style="width: 25px; height: 25px;">
               </button>
             </div>

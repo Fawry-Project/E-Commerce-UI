@@ -17,8 +17,16 @@ export class StoreService {
     return this.http.get<Store[]>(`${this.apiServerUrl}/stores`)
   }
 
+  public getStoreByName(name: string): Observable<Store>{
+    return this.http.get<Store>(`${this.apiServerUrl}/stores/${name}`);
+  }
+
   public addStore(store: Store): Observable<Store>{
     return this.http.post<Store>(`${this.apiServerUrl}/stores`, store);
+  }
+
+  public updateStore(store: Store): Observable<Store>{
+    return this.http.put<Store>(`${this.apiServerUrl}/stores`, store);
   }
 
   public deleteStore(storeId: number): Observable<void>{

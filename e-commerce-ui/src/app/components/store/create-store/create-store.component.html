@@ -1,12 +1,12 @@
 <div class="container mt-4">
     <h2>Create Store</h2>
-    <form (ngSubmit)="onsubmit()" #storeForm="ngForm">
+    <form (ngSubmit)="onSubmit(storeForm)" #storeForm="ngForm">
         <div class="mb-3">
-            <label for="storeName" class="form-label">Store Name: </label>
+            <label for="name" class="form-label">Store Name: </label>
             <input
               type="text"
-              id="storeName"
-              name="storeName"
+              id="name"
+              name="name"
               class="form-control"
               [(ngModel)]="store.name"
               required
@@ -43,4 +43,3 @@
         </button>
     </form>
 </div>
-  

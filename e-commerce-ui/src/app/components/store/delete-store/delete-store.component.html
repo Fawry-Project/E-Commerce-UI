@@ -1,1 +1,11 @@
-<p>delete-store works!</p>
+<!-- Delete Modal -->
+<div class="container mt-4">
+   <h5>Delete Store</h5>
+   <div class="body">
+      <p>Are you sure you want to delete store with id: {{store.id}} , and Name: {{store.name}} </p>
+      <div class="footer">
+         <button type="button" class="btn btn-secondary" (click)="onCancle()">No</button>
+         <button (click)="onDeleteStore()" class="btn btn-danger">Yes</button>
+      </div>
+   </div>
+</div>
