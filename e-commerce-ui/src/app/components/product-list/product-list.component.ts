@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDTO } from '../../models/product-model';
+import { Product } from '../../models/product-model';
 import { ProductService } from '../../service/product/product.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   imports: [ProductCardComponent, CommonModule],
 })
 export class ProductListComponent implements OnInit {
-  products: ProductDTO[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) {}
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProductDTO } from '../../models/product-model';
+import { ProductDTO } from '../../models/productDTO-model';
 import { ProductService } from '../../service/product/product.service';
 
 @Component({

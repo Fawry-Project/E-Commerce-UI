@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { ProductDTO } from '../../models/product-model';
+import { Product } from '../../models/product-model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +11,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<ProductDTO[]> {
-    return this.http.get<ProductDTO[]>(this.apiUrl).pipe(
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl).pipe(
       catchError((error) => {
         console.error('Error fetching products:', error);
         return throwError(error);
