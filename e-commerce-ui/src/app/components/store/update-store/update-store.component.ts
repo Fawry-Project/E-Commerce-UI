@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '../../../models/storeResponse-model';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { StoreService } from '../../../service/store/store.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '../../../models/store-model';
 
 @Component({
   selector: 'app-update-store',
@@ -34,8 +34,8 @@ export class UpdateStoreComponent implements OnInit{
         console.log(response);
         this.goToStores();
       },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+      (error) => {
+        alert(error); // Display the error message in an alert
       }
     )
   }

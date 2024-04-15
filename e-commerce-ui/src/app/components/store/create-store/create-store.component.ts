@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Store } from '../../../models/storeResponse-model';
 import { StoreService } from '../../../service/store/store.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Store } from '../../../models/store-model';
 import { error } from 'console';
 
 @Component({
@@ -26,8 +26,8 @@ export class CreateStoreComponent{
         console.log(response);
         this.goToStoreList();
       },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+      (error) => {
+        alert(error); // Display the error message in an alert
       }
     );
   }

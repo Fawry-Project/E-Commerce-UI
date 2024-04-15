@@ -1,10 +1,10 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { CommonModule } from '@angular/common';
-import { Stock } from '../../../models/stockResponse-model';
 import { StockService } from '../../../service/store/stock.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Stock } from '../../../models/stock-model';
 
 @Component({
   selector: 'app-list-stocks',
@@ -27,8 +27,8 @@ export class ListStocksComponent implements OnInit{
       (response : Stock[]) => {
         this.stocks = response;
       },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+      (error) => {
+        alert(error); // Display the error message in an alert
       }
     );
   }
@@ -38,10 +38,10 @@ export class ListStocksComponent implements OnInit{
       (response : Stock[]) => {
         this.stocks = response;
         console.log(response);
-      },
-      () => {
+      },(error) => {
         this.stocks = [];
-      }
+        alert(error); // Display the error message in an alert
+      },
     );
   }
 

@@ -1,5 +1,6 @@
-export interface StoreDTORequest{
-    name : string;
-    phoneNumber : string;
-    city : string;
+export class Store{
+    id !: number;
+    name !: string;
+    phoneNumber !: string;
+    city !: string;
 }

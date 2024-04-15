@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../../service/store/store.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '../../../models/storeResponse-model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Store } from '../../../models/store-model';
 
 @Component({
   selector: 'app-delete-store',
@@ -32,8 +32,8 @@ export class DeleteStoreComponent implements OnInit{
         console.log(response);
         this.router.navigate(['/store-service/list-stores']);
       },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+      (error) => {
+        alert(error); // Display the error message in an alert
       }
     );
   }

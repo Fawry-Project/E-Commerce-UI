@@ -1,11 +1,11 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Store } from '../../../models/storeResponse-model';
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { StoreService } from '../../../service/store/store.service';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '../../../models/store-model';
 
 @Component({
   selector: 'app-list-stores',
@@ -30,8 +30,8 @@ export class ListStoresComponent implements OnInit{
       (response : Store[]) => {
         this.stores = response;
       },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+      (error) => {
+        alert(error); // Display the error message in an alert
       }
     );
   }
@@ -42,8 +42,9 @@ export class ListStoresComponent implements OnInit{
         this.stores.push(response);
         console.log(response);
       },
-      () => {
+      (error) => {
         this.stores = [];
+        alert(error); // Display the error message in an alert
       }
     );
   }

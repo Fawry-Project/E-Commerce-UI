@@ -1,13 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { StoreService } from '../../../service/store/store.service';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { response } from 'express';
-import { Store } from '../../../models/storeResponse-model';
-import { HttpErrorResponse } from '@angular/common/http';
-import { StockService } from '../../../service/store/stock.service';
-import { Stock } from '../../../models/stockResponse-model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',

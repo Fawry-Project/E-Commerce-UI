@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from '../../../service/store/stock.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Stock } from '../../../models/stockResponse-model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Stock } from '../../../models/stock-model';
 
 @Component({
   selector: 'app-delete-stock',
@@ -33,8 +33,8 @@ export class DeleteStockComponent implements OnInit{
         console.log(response);
         this.router.navigate(['/store-service/list-stocks']);
       },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+      (error) => {
+        alert(error); // Display the error message in an alert
       }
     );
   }

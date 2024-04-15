@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Stock } from '../../../models/stockResponse-model';
 import { StockService } from '../../../service/store/stock.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Stock } from '../../../models/stock-model';
 
 @Component({
   selector: 'app-create-stock',
@@ -25,8 +25,8 @@ export class CreateStockComponent {
         console.log(response);
         this.goToStocksList();
       },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+      (error) => {
+        alert(error); // Display the error message in an alert
       }
     );
   }
