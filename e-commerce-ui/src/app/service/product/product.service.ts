@@ -36,6 +36,18 @@ export class ProductService {
     );
   }
 
+  getProductByCode(productCode: string): Observable<any> {
+    const getProductUrl = `${this.apiUrl}/${productCode}`;
+    return this.http.get<any>(getProductUrl).pipe(catchError(this.handleError));
+  }
+
+  updateProduct(productCode: string, product: Product): Observable<any> {
+    const updateUrl = `${this.apiUrl}/${productCode}`;
+    return this.http
+      .put<any>(updateUrl, product)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Client-side error
@@ -47,7 +59,7 @@ export class ProductService {
           `body was: ${JSON.stringify(error.error)}`
       );
     }
-    // Return an observable with a user-facing error message
+    // Return an observable with a user-facing error message //
     return throwError('Something bad happened; please try again later.');
   }
 }

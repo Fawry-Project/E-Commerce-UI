@@ -20,4 +20,10 @@ export class ProductCardComponent {
     // Emit the delete event with the productcode
     this.deleteProduct.emit(productCode);
   }
+
+  onUpdateClick(productCode: string) {
+    this.router.navigate(['/product-service/update-product'], {
+      queryParams: { code: productCode },
+    });
+  }
 }
