@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProductDTO } from '../../models/product-model';
+import { ProductDTO } from '../../models/productDTO-model';
+import { ProductService } from '../../service/product/product.service';
 
 @Component({
   selector: 'app-create-product',
@@ -12,10 +13,18 @@ import { ProductDTO } from '../../models/product-model';
 export class CreateProductComponent {
   product: ProductDTO = new ProductDTO();
 
+  constructor(private productService: ProductService) {}
+
   submitForm() {
-    // Handle form submission here
-    console.log('Form submitted with product:', this.product);
-    this.clearForm();
+    this.productService.createProduct(this.product).subscribe(
+      (response) => {
+        console.log('Product created successfully:', response);
+        this.clearForm();
+      },
+      (error) => {
+        console.error('Error creating product:', error);
+      }
+    );
   }
   clearForm() {
     this.product.name = '';

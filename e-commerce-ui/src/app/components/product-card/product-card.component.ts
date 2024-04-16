@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { ProductDTO } from '../../models/product-model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Product } from '../../models/product-model';
+import { ProductService } from '../../service/product/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -9,5 +11,19 @@ import { ProductDTO } from '../../models/product-model';
   styleUrl: './product-card.component.css',
 })
 export class ProductCardComponent {
-  @Input() product!: ProductDTO;
+  @Input() product!: Product;
+  @Output() deleteProduct: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(private productService: ProductService, private router: Router) {}
+
+  onDeleteClick(productCode: string) {
+    // Emit the delete event with the productcode
+    this.deleteProduct.emit(productCode);
+  }
+
+  onUpdateClick(productCode: string) {
+    this.router.navigate(['/product-service/update-product'], {
+      queryParams: { code: productCode },
+    });
+  }
 }

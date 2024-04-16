@@ -1,9 +1,19 @@
 <div class="card">
-  <img [src]="product.imgUrl" class="card-img-top" alt="Product Image" />
+  <img
+    [src]="product.imgUrl"
+    class="card-img-top card-img"
+    alt="Product Image"
+  />
   <div class="card-body">
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text">Price: {{ product.price }}</p>
     <p class="card-text">Description: {{ product.description }}</p>
-    <p class="card-text">Category: {{ product.categoryName }}</p>
+    <p class="card-text">Category: {{ product.category.name }}</p>
+    <button class="btn btn-danger mx-3" (click)="onDeleteClick(product.code)">
+      Delete
+    </button>
+    <button class="btn btn-primary" (click)="onUpdateClick(product.code)">
+      Update
+    </button>
   </div>
 </div>

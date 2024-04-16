@@ -1,3 +1,3 @@
-export interface CategoryDTO {
-  categoryName: string;
+export class CategoryDTO {
+  categoryName!: string;
 }

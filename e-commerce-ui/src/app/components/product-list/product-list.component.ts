@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDTO } from '../../models/product-model';
+import { Product } from '../../models/product-model';
 import { ProductService } from '../../service/product/product.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CommonModule } from '@angular/common';
@@ -12,17 +12,30 @@ import { CommonModule } from '@angular/common';
   imports: [ProductCardComponent, CommonModule],
 })
 export class ProductListComponent implements OnInit {
-  products: ProductDTO[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.listProducts();
+    
   }
 
   listProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
     });
+  }
+
+  onDeleteProduct(productCode: string) {
+    // Call service to delete the product
+    this.productService.deleteProduct(productCode).subscribe(
+      (response) => {
+        this.listProducts();
+      },
+      (error) => {
+        console.error('Error deleting product:', error);
+      }
+    );
   }
 }
