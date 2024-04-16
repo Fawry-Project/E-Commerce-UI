@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Coupon } from '../../models/coupon-model';
 import { DatePipe } from '@angular/common';
+import { CouponService } from '../../service/coupon/coupon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coupon-card',
@@ -11,4 +13,18 @@ import { DatePipe } from '@angular/common';
 })
 export class CouponCardComponent {
   @Input() coupon!: Coupon;
+  @Output() deleteCoupon: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(private couponService: CouponService, private router: Router) {}
+
+  onDeleteClick(couponCode: string) {
+    // Emit the delete event with the Couponcode
+    this.deleteCoupon.emit(couponCode);
+  }
+
+  onUpdateClick(productCode: string) {
+    this.router.navigate(['/coupon-service/update-coupon'], {
+      queryParams: { code: productCode },
+    });
+  }
 }

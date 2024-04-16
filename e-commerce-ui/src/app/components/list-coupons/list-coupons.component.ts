@@ -25,4 +25,15 @@ export class ListCouponsComponent implements OnInit {
       .getCoupons()
       .subscribe((coupons) => (this.coupons = coupons));
   }
+  onDeleteCoupon(couponCode: string) {
+    // Call service to delete the product
+    this.couponService.deleteCoupon(couponCode).subscribe(
+      (response) => {
+        this.getCoupons();
+      },
+      (error) => {
+        console.error('Error deleting Coupon', error);
+      }
+    );
+  }
 }

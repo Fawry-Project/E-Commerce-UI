@@ -26,7 +26,11 @@
         </p>
       </div>
     </div>
-    <button class="btn btn-primary">Update</button>
-    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-primary" (click)="onUpdateClick(coupon.code)">
+      Update
+    </button>
+    <button class="btn btn-danger" (click)="onDeleteClick(coupon.code)">
+      Delete
+    </button>
   </div>
 </div>
