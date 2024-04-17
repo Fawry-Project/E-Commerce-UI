@@ -1,4 +1,3 @@
-# E-Commerce-UI
 <h1>User service</h1>
 
 This Service is a Registration and a validation system. The Backeend of the system was built using Spring Boot utilizing  Spring Security, and JSON Web Tokens (JWT), the frontend of the system was built using Angular.
