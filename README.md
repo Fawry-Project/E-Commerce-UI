@@ -1,5 +1,6 @@
 # E-Commerce-UI
-User service
+<h1>User service</h1>
+
 This Service is a Registration and a validation system. The Backeend of the system was built using Spring Boot utilizing  Spring Security, and JSON Web Tokens (JWT), the frontend of the system was built using Angular.
 The journey of the validation process begins when a user sends a RegisterRequest to register, or an AuthRequest to Authenticate as an HttpRequest to the JwtAuthFilter. The JwtAuthFilter is a once per request filter, and it has the role to check and validate everything regarding the JwtToken.
  First, the JwtAuthFilter will check if the JwtToken is available or missing. If JwtToken is missing, a 403 response will be sent to the user saying 'Missing JwtToken'.
