@@ -9,9 +9,6 @@ Once the user is found with a generated Token, the validation process will start
  The first case, which the token is not valid, a 403 response will be sent to the user saying 'Invalid Jwt Token'. The second case if the Token is valid then the SecurityContextHolder will be updated informing the user is authenticated.
 
 ```mermaid
----
-title: User Service
----
 erDiagram
     user ||--|| RegisterRequest: sends
     user ||--|| AuthRequest: sends
