@@ -8,7 +8,7 @@ Second, the JwtAuthFilter will call the UserDetailsService to fetch the user inf
 Once the user is found with a generated Token, the validation process will start by validating the JwtToken using the ValidateJwt mechanism. The ValidateJwt mechanism will call the JwtService which takes the user information and the token. After the execution of the validation process, there will be two cases.
  The first case, which the token is not valid, a 403 response will be sent to the user saying 'Invalid Jwt Token'. The second case if the Token is valid then the SecurityContextHolder will be updated informing the user is authenticated.
 
-
+```mermaid
 ---
 title: User Service
 ---
@@ -48,3 +48,4 @@ erDiagram
     JwtAuthFilter ||--|| ValidateJwt : contains
     ValidateJwt ||--|| JwtService : call
     ValidateJwt ||--|| SecurityContextHolder: update
+```
