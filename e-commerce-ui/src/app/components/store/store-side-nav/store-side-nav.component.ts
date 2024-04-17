@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,5 +9,4 @@ import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angul
   styleUrl: './store-side-nav.component.css'
 })
 export class StoreSideNavComponent {
-
 }

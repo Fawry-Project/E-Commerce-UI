@@ -1,6 +1,6 @@
 <div class="container mt-4">
     <h2>Create Stock</h2>
-    <form>
+    <form (ngSubmit)="onSubmit(stockForm)" #stockForm="ngForm">
         <div class="mb-3">
             <label for="productCode" class="form-label">Product Code: </label>
             <input
@@ -8,6 +8,7 @@
               id="productCode"
               name="productCode"
               class="form-control"
+              [(ngModel)]="stock.productCode"
               required
             />
         </div>
@@ -18,6 +19,7 @@
               id="storeId"
               name="storeId"
               class="form-control"
+              [(ngModel)]="stock.storeId"
               required
             />
         </div>
@@ -28,15 +30,16 @@
               id="quantity"
               name="quantity"
               class="form-control"
+              [(ngModel)]="stock.quantity"
               required
             />
         </div>
         <button 
             type="submit" 
             class="btn btn-primary"
+            [disabled]="!stockForm.valid"
         >
             Create Stock
         </button>
     </form>
 </div>
-  

@@ -1,0 +1,50 @@
+<div class="container mt-4" mt-4>
+  <form  #searchForm="ngForm">
+    <h6>Search By Product Code Or Product Code & Order Code</h6>
+    <div class="input-group mb-3">
+      <input type="text" 
+        class="form-control" 
+        id="productCode"
+        name="productCode"
+        placeholder="productCode" 
+        required
+        [(ngModel)]="productCode"
+        >
+      <input type="text"
+        class="form-control" 
+        id="orderCode"
+        name="orderCode"
+        placeholder="orderCode" 
+        [(ngModel)]="orderCode"
+        >
+      <button 
+        [disabled]="!searchForm.valid"
+        class="btn btn-primary" 
+        (click)="onClick()"
+        >
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="container mt-4" id="main-container"> 
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col"> Product Code </div>
+          <div class="col"> Order Code </div>
+          <div class="col"> Quantity Consumed </div>
+          <div class="col"> Consumed At </div>
+        </div>
+      </li>
+      <li *ngFor="let product of products" class="list-group-item" id="list-group-item">
+        <div class="row">
+          <div class="col"> {{ product.productCode }}</div>
+          <div class="col"> {{ product.orderCode }}</div>
+          <div class="col"> {{ product.quantityConsumed }}</div>
+          <div class="col"> {{ product.consumedAt }}</div>
+        </div>
+      </li>
+    </ul>
+  </div>

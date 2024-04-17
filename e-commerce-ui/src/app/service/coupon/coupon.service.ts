@@ -8,7 +8,7 @@ import { CouponDTO } from '../../models/couponDTO-model';
   providedIn: 'root',
 })
 export class CouponService {
-  private apiUrl = 'http://localhost:8080/api/coupons';
+  private apiUrl = 'http://localhost:8081/api/coupons';
 
   constructor(private http: HttpClient) {}
 
@@ -50,17 +50,20 @@ export class CouponService {
   }
 
   private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'An error occurred';
     if (error.error instanceof ErrorEvent) {
       // Client-side error
       console.error('An error occurred:', error.error.message);
+      errorMessage = `Client-side Error: ${error.error.message}`;
     } else {
       // Server-side error
       console.error(
         `Backend returned code ${error.status}, ` +
           `body was: ${JSON.stringify(error.error)}`
       );
+      errorMessage = `BackEnd Error: ${error.status} - ${error.error.message}`;
     }
     // Return an observable with a user-facing error message //
-    return throwError('Something bad happened; please try again later.');
+    return throwError(errorMessage);
   }
 }

@@ -4,7 +4,9 @@
         id="serch"
         name="serch"
         class="form-control"
+        [placeholder]="placeHolderValue"
+        [(ngModel)] ="inputText"
         required
     />
-    <button class="btn btn-primary">Search</button>
+    <button class="btn btn-primary" (click)="onClick()">Search</button>
 </div>
