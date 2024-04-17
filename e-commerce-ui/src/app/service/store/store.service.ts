@@ -21,7 +21,7 @@ export class StoreService {
   public getStoreByName(name: string): Observable<Store>{
     return this.http.get<Store>(`${this.apiServerUrl}/stores/${name}`).pipe(
       this.fetchError()
-  ) 
+    ) 
   }
 
   public addStore(store: Store): Observable<Store>{
@@ -47,12 +47,12 @@ export class StoreService {
       let errorMessage = 'An error occurred';
       if (error.error instanceof ErrorEvent) {
         // Client-side error
-        console.log(`Eclient-side rror: ${error.error.message}`);
-        errorMessage = `Error: ${error.error.message}`;
+        console.log(`Client-side rror: ${error.error.message}`);
+        errorMessage = `Client-side Error: ${error.error.message}`;
       } else {
         // Backend error
         console.log(`Backend Error: ${error.status} - ${error.error.message}`)
-        errorMessage = `Error: ${error.status} - ${error.error.message}`;
+        errorMessage = `BackEnd Error: ${error.status} - ${error.error.message}`;
       }
       return throwError(errorMessage);
     })

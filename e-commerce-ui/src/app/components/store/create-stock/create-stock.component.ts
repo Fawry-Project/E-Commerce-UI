@@ -16,7 +16,7 @@ import { Stock } from '../../../models/stock-model';
 export class CreateStockComponent {
   stock: Stock= new Stock();
 
-  constructor(public stockService: StockService, private router: Router, private datePipe: DatePipe){}
+  constructor(public stockService: StockService, private router: Router){}
 
   onSubmit(stockForm: NgForm): void{
     console.log(stockForm.value);

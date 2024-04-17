@@ -4,5 +4,5 @@ export class Stock{
     quantity !: number | null;
     productCode!: string;
     consumedQuantity !: number;
-    creationDate !: String | null;
+    creationDate !: Date | null;
 }
